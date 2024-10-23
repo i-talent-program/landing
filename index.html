@@ -125,5 +125,34 @@
             <button type="submit">¡Quiero acceder ahora!</button>
         </form>
     </div>
+    <script>
+      document.getElementById('miFormulario').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+
+            // Obtén los valores del formulario
+            const nombre = document.querySelector('input[name="nombre"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+
+            // Prepara los datos a enviar
+            const data = {
+                nombre: nombre,
+                email: email
+            };
+
+            // Realiza la solicitud al webhook
+            fetch('https://hooks.zapier.com/hooks/catch/19308114/292pjjn/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                mode: 'no-cors', // Configuración para no-cors
+                body: JSON.stringify(data) // Convierte los datos a JSON
+            }).then(response => {
+                console.log('Datos enviados con éxito');
+            }).catch(error => {
+                console.error('Error al enviar los datos:', error);
+            });
+        });
+</script>
 </body>
 </html>
