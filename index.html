@@ -6,6 +6,7 @@
     <title>Formulario AutomatizaTube</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Estilos existentes */
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +15,8 @@
 
         body {
             font-family: 'Raleway', sans-serif;
-            background-color: #FFFFFF; /* Fondo blanco */
-            color: black; /* Letras negras */
+            background-color: #FFFFFF;
+            color: black;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -46,7 +47,7 @@
         }
 
         h1 {
-            font-size: 45px;
+            font-size: 24px;
             margin-bottom: 30px;
             line-height: 1.5;
         }
@@ -65,17 +66,17 @@
             padding: 20px;
         }
 
-        input[type="text"], input[type="email"] {
+        input[type="text"], input[type="email"], input[type="tel"] {
             width: 100%;
             padding: 15px;
-            border: 1px solid #A3A3A3; /* Añadido borde */
+            border: 1px solid #A3A3A3;
             border-radius: 5px;
             font-size: 16px;
             outline: none;
-            color: black; /* Texto en negro */
+            color: black;
         }
 
-        input[type="text"]::placeholder, input[type="email"]::placeholder {
+        input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="tel"]::placeholder {
             color: #A3A3A3;
         }
 
@@ -90,7 +91,7 @@
         }
 
         button {
-            background-color: #0b85d6; /* Botón en azul */
+            background-color: #0b85d6;
             color: white;
             border: none;
             padding: 15px;
@@ -102,22 +103,23 @@
         }
 
         button:hover {
-            background-color: #094c79; /* Efecto hover más oscuro */
+            background-color: #094c79;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo">
-           <h1>IPARTNERS</h1>
+          <img src="ipart.png" alt="">
         </div>
         <h2 class="presentacion">MASTERCLASS GRATUITA EN DIRECTO MIÉRCOLES 27 Y 28 DE NOVIEMBRE</h2>
         <h1>Deja de Cometer 
             <span class="highlight"> Estos 3 Errores</span> y Tú Agencia Por Fin<span class="highlight"> PASARÁ AL SIGUIENTE NIVEL.</span></h1>
             <p>RELLENA EL FORMULARIO PARA QUE TE LLEGUE LA CONVOCATORIA Y PODER ASISTIR</p>
-        <form action="#" method="POST">
+        <form id="miFormulario">
             <input type="text" name="nombre" placeholder="Escribe tu nombre" required>
             <input type="email" name="email" placeholder="Escribe tu email" required>
+            <input type="tel" name="telefono" placeholder="Escribe tu teléfono" required>
             <div class="politica">
                 <input type="checkbox" id="politica" required>
                 <label for="politica">He leído y acepto la política de privacidad</label>
@@ -125,18 +127,21 @@
             <button type="submit">¡Quiero acceder ahora!</button>
         </form>
     </div>
+
     <script>
-      document.getElementById('miFormulario').addEventListener('submit', function(event) {
+        document.getElementById('miFormulario').addEventListener('submit', function(event) {
             event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
 
-            // Obtén los valores del formulario
-            const nombre = document.querySelector('input[name="nombre"]').value;
-            const email = document.querySelector('input[name="email"]').value;
+            // Obtén los valores del formulario y codifícalos con encodeURIComponent
+            const nombre = encodeURIComponent(document.querySelector('input[name="nombre"]').value);
+            const email = encodeURIComponent(document.querySelector('input[name="email"]').value);
+            const telefono = encodeURIComponent(document.querySelector('input[name="telefono"]').value);
 
             // Prepara los datos a enviar
             const data = {
                 nombre: nombre,
-                email: email
+                email: email,
+                telefono: telefono
             };
 
             // Realiza la solicitud al webhook
@@ -153,6 +158,6 @@
                 console.error('Error al enviar los datos:', error);
             });
         });
-</script>
+    </script>
 </body>
 </html>
