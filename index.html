@@ -108,6 +108,33 @@
         button:hover {
             background-color: #094c79;
         }
+
+
+        .countdown {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+}
+
+.time-box {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.time-box span {
+    font-size: 2em;
+    display: block;
+    color: #333;
+}
+
+.time-box p {
+    font-size: 0.8em;
+    color: #555;
+    margin-top: 10px;
+}
     </style>
 </head>
 <body>
@@ -131,6 +158,27 @@
         </form>
     </div>
 
+   <div class="countdown">
+        <div class="time-box">
+            <span id="days">00</span>
+            <p>DAYS</p>
+        </div>
+        <div class="time-box">
+            <span id="hours">00</span>
+            <p>HOURS</p>
+        </div>
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <p>MINUTES</p>
+        </div>
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <p>SECONDS</p>
+        </div>
+    </div>
+
+
+    
     <script>
         document.getElementById('miFormulario').addEventListener('submit', function(event) {
             event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
@@ -161,6 +209,34 @@
                 console.error('Error al enviar los datos:', error);
             });
         });
+
+
+
+
+
+        function countdown() {
+    const targetDate = new Date("November 27, 2024 00:00:00").getTime();
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days < 10 ? "0" + days : days;
+    document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
+    document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
+
+    if (distance < 0) {
+        clearInterval(timer);
+        document.querySelector(".countdown").innerHTML = "<p>¡La fecha ha llegado!</p>";
+    }
+}
+
+const timer = setInterval(countdown, 1000);
+
     </script>
 </body>
 </html>
