@@ -181,6 +181,45 @@
     font-weight: bold;
 }
 
+
+        .gracias {
+    text-align: center;
+    background-color: #e0f7fa;
+    color: #00796b;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    border: 1px solid #00796b;
+    display: none; /* Oculto por defecto */
+}
+.gracias a {
+    color: #0b85d6;
+    text-decoration: none;
+    font-weight: bold;
+}
+.gracias a:hover {
+    text-decoration: underline;
+}
+
+.boton-masterclass {
+    display: inline-block;
+    background-color: #009688; /* Color de fondo similar al verde de la imagen */
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.boton-masterclass:hover {
+    background-color: #00796b; /* Un verde más oscuro para el efecto hover */
+}
+
     </style>
 </head>
 <body>
@@ -200,8 +239,13 @@
                 <input type="checkbox" id="politica" required>
                 <label for="politica">He leído y acepto la política de privacidad</label>
             </div>
-            <button type="submit">¡Apuntarse Ahora!</button>
+            <button type="submit">¡Quiero Asistir a la MasterClass!</button>
         </form>
+        <div class="gracias" style="display: none;">
+    <h2>Gracias por Apuntarte a Nuestro Lanzamiento</h2>
+    <p>Accede a nuestro grupo de Whatsapp <a href="https://chat.whatsapp.com/J4sP8kTp24O0d1fA7Y95bX" target="_blank">aquí</a>.</p>
+</div>
+
     </div>
 
    <div class="countdown">
@@ -251,39 +295,43 @@
         <span class="checkmark">✔️</span>
     </div>
 </div>
+<a href="#miFormulario" class="boton-masterclass">QUIERO ASISTIR A LA MASTERCLASS!</a>
 
 
     
     <script>
-        document.getElementById('miFormulario').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+       document.getElementById('miFormulario').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita el envío predeterminado del formulario
 
-            // Obtén los valores del formulario y codifícalos con encodeURIComponent
-            const nombre = encodeURIComponent(document.querySelector('input[name="nombre"]').value);
-            const email = encodeURIComponent(document.querySelector('input[name="email"]').value);
-            const telefono = encodeURIComponent(document.querySelector('input[name="telefono"]').value);
+    // Obtén los valores del formulario y codifícalos con encodeURIComponent
+    const nombre = encodeURIComponent(document.querySelector('input[name="nombre"]').value);
+    const email = encodeURIComponent(document.querySelector('input[name="email"]').value);
+    const telefono = encodeURIComponent(document.querySelector('input[name="telefono"]').value);
 
-            // Prepara los datos a enviar
-            const data = {
-                nombre: nombre,
-                email: email,
-                telefono: telefono
-            };
+    // Prepara los datos a enviar
+    const data = {
+        nombre: nombre,
+        email: email,
+        telefono: telefono
+    };
 
-            // Realiza la solicitud al webhook
-            fetch('https://hooks.zapier.com/hooks/catch/19308114/292pjjn/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                mode: 'no-cors', // Configuración para no-cors
-                body: JSON.stringify(data) // Convierte los datos a JSON
-            }).then(response => {
-                console.log('Datos enviados con éxito');
-            }).catch(error => {
-                console.error('Error al enviar los datos:', error);
-            });
-        });
+    // Realiza la solicitud al webhook
+    fetch('https://hooks.zapier.com/hooks/catch/19308114/292pjjn/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        mode: 'no-cors',
+        body: JSON.stringify(data)
+    }).then(response => {
+        console.log('Datos enviados con éxito');
+        document.querySelector('.gracias').style.display = 'block'; // Muestra el mensaje de agradecimiento
+        document.getElementById('miFormulario').reset(); // Limpia el formulario
+    }).catch(error => {
+        console.error('Error al enviar los datos:', error);
+    });
+});
+
 
 
 
