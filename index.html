@@ -332,6 +332,11 @@
         console.log('Datos enviados con éxito');
         document.querySelector('.gracias').style.display = 'block'; // Muestra el mensaje de agradecimiento
         document.getElementById('miFormulario').reset(); // Limpia el formulario
+
+        // Después de 3 segundos, redirige a lading2.html
+            setTimeout(() => {
+                window.location.href = 'lading2.html';
+            }, 3000);
     }).catch(error => {
         console.error('Error al enviar los datos:', error);
     });
