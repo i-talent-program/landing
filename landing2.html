@@ -27,15 +27,29 @@
             padding: 20px;
         }
 
-        h1, h2, p {
+        h1, h2, h3, p {
             margin-bottom: 20px;
             line-height: 1.5;
         }
 
         .highlight {
             color: #0b85d6;
+            font-size: 1.8em;
         }
 
+        h3 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .note {
+            background-color: yellow;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        /* Sección de video */
         .video-section {
             margin-top: 20px;
             position: relative;
@@ -43,12 +57,6 @@
             padding: 20px;
             border-radius: 10px;
             background-color: #f9f9f9;
-        }
-
-        .video-section h3 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 10px;
         }
 
         .video-placeholder {
@@ -62,25 +70,18 @@
             border-radius: 8px;
         }
 
-        .note {
-            background-color: yellow;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        /* Estilos del botón de WhatsApp */
+        /* Botón de WhatsApp */
         .join-whatsapp {
             background-color: #0b85d6;
             color: white;
             padding: 15px;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 1.2em;
             text-decoration: none;
             font-weight: bold;
-            display: none; /* Ocultar al principio */
+            display: none;
             margin: 20px 0;
-            animation: heartbeat 1.5s infinite; /* Efecto de latido */
+            animation: heartbeat 1.5s infinite;
         }
 
         /* Efecto de latido */
@@ -91,24 +92,26 @@
             75% { transform: scale(1.1); }
         }
 
-        /* Estilos del temporizador */
+        /* Temporizador */
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 10px;
             margin: 20px 0;
+            flex-wrap: wrap;
         }
 
         .time-box {
             background-color: #e0e0e0;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             font-weight: bold;
+            flex: 1 1 70px;
         }
 
         .time-box span {
-            font-size: 2em;
+            font-size: 1.5em;
             color: #333;
             display: block;
         }
@@ -118,44 +121,62 @@
             color: #555;
             margin-top: 5px;
         }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .highlight {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            .join-whatsapp {
+                font-size: 1em;
+            }
+
+            .time-box span {
+                font-size: 1.2em;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Sección de presentación -->
-        <h2 class="highlight">PASO 2 : Mira este vídeo</h2>
+        <h2 class="highlight">PASO 2: Mira este vídeo</h2>
         <p class="note">MIRA ESTE VIDEO DE 3 min SI O SI ANTES DEL DIRECTO DEL 27 DE NOVIEMBRE</p>
 
         <!-- Sección de video -->
         <div class="video-section">
             <h3>¿Quiénes Somos? ¿Qué Vas a Ver en la MasterCLASS y Por qué debes Verla?</h3>
             <div class="video-placeholder">
-                <iframe id="video" width="100%" height="auto" src="https://www.youtube.com/embed/9__IFxrVrTg?enablejsapi=1&controls=0" title="PASO 2 : Lanzamiento" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="video" width="100%" height="auto" src="https://www.youtube.com/embed/9__IFxrVrTg?enablejsapi=1&controls=0" title="PASO 2: Lanzamiento" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
 
-        <h2 class="highlight">UNETE A NUESTRA COMUNIDAD DE WHATSAPP GRATIS</h2>
-       
+        <h2 class="highlight">ÚNETE A NUESTRA COMUNIDAD DE WHATSAPP GRATIS</h2>
         <p>A la que Solo puedes Acceder si llegas hasta el Final del Video.</p>
-         <a href="https://chat.whatsapp.com/J4sP8kTp24O0d1fA7Y95bX" class="join-whatsapp" id="whatsappButton" target="_blank">ÚNETE AHORA</a>
+        <a href="https://chat.whatsapp.com/J4sP8kTp24O0d1fA7Y95bX" class="join-whatsapp" id="whatsappButton" target="_blank">ÚNETE AHORA</a>
 
         <!-- Temporizador -->
         <div class="countdown">
             <div class="time-box">
                 <span id="days">00</span>
-                <p>DAYS</p>
+                <p>DÍAS</p>
             </div>
             <div class="time-box">
                 <span id="hours">00</span>
-                <p>HOURS</p>
+                <p>HORAS</p>
             </div>
             <div class="time-box">
                 <span id="minutes">00</span>
-                <p>MINUTES</p>
+                <p>MINUTOS</p>
             </div>
             <div class="time-box">
                 <span id="seconds">00</span>
-                <p>SECONDS</p>
+                <p>SEGUNDOS</p>
             </div>
         </div>
     </div>
@@ -171,14 +192,13 @@
             });
         }
 
-        // Función que se ejecuta al cambiar el estado del video
+        // Mostrar botón de WhatsApp después de 3 minutos de reproducción
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
                 setTimeout(showWhatsAppButton, 180000); // 3 minutos en milisegundos
             }
         }
 
-        // Mostrar el botón de WhatsApp después de 3 minutos
         function showWhatsAppButton() {
             document.getElementById('whatsappButton').style.display = 'inline-block';
         }
