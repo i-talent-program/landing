@@ -36,7 +36,6 @@
             color: #0b85d6;
         }
 
-        /* Estilos de la sección de video */
         .video-section {
             margin-top: 20px;
             position: relative;
@@ -65,12 +64,10 @@
         }
 
         .note {
-
             background-color: yellow;
             padding: 10px;
             border-radius: 5px;
             font-size: 14px;
-
         }
 
         /* Estilos del botón de WhatsApp */
@@ -82,8 +79,17 @@
             font-size: 16px;
             text-decoration: none;
             font-weight: bold;
-            display: inline-block;
+            display: none; /* Ocultar al principio */
             margin: 20px 0;
+            animation: heartbeat 1.5s infinite; /* Efecto de latido */
+        }
+
+        /* Efecto de latido */
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1.2); }
+            75% { transform: scale(1.1); }
         }
 
         /* Estilos del temporizador */
@@ -125,13 +131,12 @@
         <div class="video-section">
             <h3>¿Quiénes Somos? ¿Qué Vas a Ver en la MasterCLASS y Por qué debes Verla?</h3>
             <div class="video-placeholder">
-                <p>Video de 3 min</p>
+                <iframe id="video" width="1280" height="720" src="https://www.youtube.com/embed/9__IFxrVrTg?enablejsapi=1&controls=0" title="PASO 2 : Lanzamiento" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            
         </div>
 
         <!-- Botón de WhatsApp -->
-        <a class="join-whatsapp">ÚNETE A NUESTRA COMUNIDAD DE WHATSAPP GRATIS</a>
+        <a href="https://chat.whatsapp.com/J4sP8kTp24O0d1fA7Y95bX" class="join-whatsapp" id="whatsappButton" target="_blank">ÚNETE AHORA</a>
         <p>A la que Solo puedes Acceder si llegas hasta el Final del Video.</p>
 
         <!-- Temporizador -->
@@ -156,7 +161,27 @@
     </div>
 
     <script>
-        // Configuración de funciones JavaScript para cumplir con los requerimientos de los post-its
+        // API de YouTube
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('video', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // Función que se ejecuta al cambiar el estado del video
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                setTimeout(showWhatsAppButton, 180000); // 3 minutos en milisegundos
+            }
+        }
+
+        // Mostrar el botón de WhatsApp después de 3 minutos
+        function showWhatsAppButton() {
+            document.getElementById('whatsappButton').style.display = 'inline-block';
+        }
 
         // Temporizador de cuenta regresiva
         function countdown() {
@@ -182,15 +207,11 @@
 
         const timer = setInterval(countdown, 1000);
 
-        // Mostrar botón de WhatsApp después de ver el video por completo
-        function showWhatsAppButton() {
-            const button = document.querySelector('.join-whatsapp');
-            setTimeout(() => {
-                button.style.display = 'block';
-            }, 180000); // 3 minutos en milisegundos
-        }
-
-        document.addEventListener("DOMContentLoaded", showWhatsAppButton);
+        // Cargar la API de YouTube
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     </script>
 </body>
 </html>
