@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Masterclass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #FFFFFF;
+            color: black;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1, h2, p {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            color: #0b85d6;
+        }
+
+        /* Estilos de la sección de video */
+        .video-section {
+            margin-top: 20px;
+            position: relative;
+            border: 1px solid #0b85d6;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .video-section h3 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFF;
+            font-size: 24px;
+            border-radius: 8px;
+        }
+
+        .note {
+            position: absolute;
+            background-color: yellow;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            top: 20px;
+            right: 20px;
+        }
+
+        /* Estilos del botón de WhatsApp */
+        .join-whatsapp {
+            background-color: #0b85d6;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        /* Estilos del temporizador */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .time-box {
+            background-color: #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+
+        .time-box span {
+            font-size: 2em;
+            color: #333;
+            display: block;
+        }
+
+        .time-box p {
+            font-size: 0.8em;
+            color: #555;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sección de presentación -->
+        <h2 class="highlight">FASE 2 De Nuestro Embudo! LANDING 2</h2>
+        <p>MIRA ESTE VIDEO DE 3 min SI O SI ANTES DEL DIRECTO DEL 27 DE NOVIEMBRE</p>
+
+        <!-- Sección de video -->
+        <div class="video-section">
+            <h3>¿Quiénes Somos? ¿Qué Vas a Ver en la MasterCLASS y Por qué debes Verla?</h3>
+            <div class="video-placeholder">
+                <p>Video de 3 min</p>
+            </div>
+            <div class="note">Este Video no debe poder Pararse. Solo puede Durar 3 Minutos.</div>
+        </div>
+
+        <!-- Botón de WhatsApp -->
+        <a class="join-whatsapp">ÚNETE A NUESTRA COMUNIDAD DE WHATSAPP GRATIS</a>
+        <p>A la que Solo puedes Acceder si llegas hasta el Final del Video.</p>
+
+        <!-- Temporizador -->
+        <div class="countdown">
+            <div class="time-box">
+                <span id="days">00</span>
+                <p>DAYS</p>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <p>HOURS</p>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <p>MINUTES</p>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <p>SECONDS</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuración de funciones JavaScript para cumplir con los requerimientos de los post-its
+
+        // Temporizador de cuenta regresiva
+        function countdown() {
+            const targetDate = new Date("November 27, 2024 00:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days < 10 ? "0" + days : days;
+            document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.querySelector(".countdown").innerHTML = "<p>¡La fecha ha llegado!</p>";
+            }
+        }
+
+        const timer = setInterval(countdown, 1000);
+
+        // Mostrar botón de WhatsApp después de ver el video por completo
+        function showWhatsAppButton() {
+            const button = document.querySelector('.join-whatsapp');
+            setTimeout(() => {
+                button.style.display = 'block';
+            }, 180000); // 3 minutos en milisegundos
+        }
+
+        document.addEventListener("DOMContentLoaded", showWhatsAppButton);
+    </script>
+</body>
+</html>
