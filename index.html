@@ -311,8 +311,10 @@
 
     // Obtén los valores del formulario y codifícalos con encodeURIComponent
     const nombre = encodeURIComponent(document.querySelector('input[name="nombre"]').value);
-    const email = encodeURIComponent(document.querySelector('input[name="email"]').value);
-    const telefono = encodeURIComponent(document.querySelector('input[name="telefono"]').value);
+let email = encodeURIComponent(document.querySelector('input[name="email"]').value);
+email = email.replace('%40', '@'); // Reemplaza %40 por @
+const telefono = encodeURIComponent(document.querySelector('input[name="telefono"]').value);
+
 
     // Prepara los datos a enviar
     const data = {
