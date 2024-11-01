@@ -98,6 +98,7 @@
             justify-content: center;
             gap: 20px;
             margin: 20px 0;
+            flex-wrap: wrap;
         }
 
         .time-box {
@@ -129,6 +130,15 @@
             height: auto!important;
         }
     }
+
+        @media (max-width: 600px) {
+    .time-box span {
+        font-size: 15px;
+        color: #333;
+        display: block;
+    }
+}
+
     </style>
 </head>
 <body>
