@@ -316,15 +316,14 @@
 
     
     <script>
-       document.getElementById('miFormulario').addEventListener('submit', function(event) {
+      document.getElementById('miFormulario').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita el envío predeterminado del formulario
 
-    // Obtén los valores del formulario y codifícalos con encodeURIComponent
-    const nombre = encodeURIComponent(document.querySelector('input[name="nombre"]').value);
-let email = encodeURIComponent(document.querySelector('input[name="email"]').value);
-email = email.replace('%40', '@'); // Reemplaza %40 por @
-const telefono = encodeURIComponent(document.querySelector('input[name="telefono"]').value);
-
+    // Obtén los valores del formulario
+    const nombre = document.querySelector('input[name="nombre"]').value.trim(); // Elimina espacios adicionales
+    let email = encodeURIComponent(document.querySelector('input[name="email"]').value.trim());
+    email = email.replace('%40', '@'); // Reemplaza %40 por @
+    const telefono = document.querySelector('input[name="telefono"]').value.trim();
 
     // Prepara los datos a enviar
     const data = {
@@ -347,14 +346,13 @@ const telefono = encodeURIComponent(document.querySelector('input[name="telefono
         document.getElementById('miFormulario').reset(); // Limpia el formulario
 
         // Después de 3 segundos, redirige a lading2.html
-            setTimeout(() => {
-                window.location.href = 'landing2.html';
-            }, 3000);
+        setTimeout(() => {
+            window.location.href = 'landing2.html';
+        }, 3000);
     }).catch(error => {
         console.error('Error al enviar los datos:', error);
     });
 });
-
 
 
 
