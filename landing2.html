@@ -7,145 +7,68 @@
     <link rel="icon" href="https://i.postimg.cc/3RkMQhWq/logo-ia.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+       /* Estilos generales */
+body {
+  font-family: 'Raleway', sans-serif;
+}
 
-        /* General Styles */
-        body {
-            font-family: 'Raleway', sans-serif;
-            background-color: #FFFFFF;
-            color: black;
-            text-align: center;
-            padding: 20px;
-        }
+/* Sección del título */
+.header-title {
+  font-size: 3rem;
+  text-align: center;
+  background: linear-gradient(to right, gold, purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
+/* Botón */
+.join-whatsapp {
+  background: linear-gradient(to right, #f79533, #f2c94c);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: 2px solid gold; /* Borde dorado */
+}
 
-        h1, h2, p {
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
+/* Temporizador */
+.countdown {
+  text-align: center;
+  margin-top: 30px;
+}
 
-        .highlight {
-            color: red;
-        }
+.countdown div {
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid gold;
+  border-radius: 5px;
+  margin: 0 10px;
+}
 
-        /* Video Section */
-        .video-section {
-            margin-top: 20px;
-            position: relative;
-            border: 1px solid red;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-        }
+/* Otros elementos (puedes personalizarlos) */
+.subtitle {
+  font-style: italic;
+  color: #666;
+}
 
-        .video-section h3 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+.video-section {
+  border: 2px solid gold;
+  padding: 20px;
+  border-radius: 10px;
+}
 
-        .video-placeholder {
-            width: 100%;
-            background-color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FFF;
-            font-size: 24px;
-            border-radius: 8px;
-        }
+.workshop-description {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+}
 
-        /* Note Section */
-        .note {
-            background-color: yellow;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 14px;
-            color: black;
-        }
-
-        /* WhatsApp Button with Gradient and Gold Border */
-        .join-whatsapp {
-            background: linear-gradient(to right, #FFD700, #FFA500);
-            color: white;
-            padding: 15px;
-            border: 2px solid #FFD700;
-            border-radius: 5px;
-            font-size: 16px;
-            text-decoration: none;
-            font-weight: bold;
-            display: none; /* Initially hidden */
-            margin: 20px 0;
-            animation: heartbeat 1.5s infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1.2); }
-            75% { transform: scale(1.1); }
-        }
-
-        /* Countdown Timer */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .time-box {
-            background-color: #e0e0e0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            font-weight: bold;
-            border: 2px solid #FFD700;
-        }
-
-        .time-box span {
-            font-size: 2em;
-            color: #333;
-            display: block;
-        }
-
-        .time-box p {
-            font-size: 0.8em;
-            color: #555;
-            margin-top: 5px;
-        }
-
-        /* Video Responsive */
-        #video {
-            height: 500px;
-        }
-
-        @media (max-width: 768px) {
-            #video {
-                height: auto !important;
-            }
-        }
-
-        /* Small Screen Adjustments */
-        @media (max-width: 600px) {
-            .time-box span {
-                font-size: 15px;
-                color: #333;
-                display: block;
-            }
-        }
-
+.workshop-description ul {
+  list-style: none;
+  padding: 0;
+}
     </style>
 </head>
 <body>
