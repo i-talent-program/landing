@@ -386,13 +386,9 @@
                     window.location.href = 'landing2.html';
                 }, 3000);
             }).catch(error => {
-                 formulario.querySelector('.gracias').style.display = 'block'; // Muestra el mensaje de agradecimiento
-                formulario.reset(); // Limpia el formulario
-
-                // Después de 3 segundos, redirige a landing2.html
-                setTimeout(() => {
+                
                     window.location.href = 'landing2.html';
-                }, 3000);
+               
             });
         });
     }
