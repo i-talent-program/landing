@@ -3,396 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario AutomatizaTube</title>
+    <title>Workshop Marketing y Ventas</title>
     <link rel="icon" href="https://i.postimg.cc/3RkMQhWq/logo-ia.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos existentes */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Raleway', sans-serif;
-            background-color: #FFFFFF;
-            color: black;
-            
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: white;
         }
 
-        .container {
+         .container {
             text-align: center;
-            width: 100%;
-            max-width: 1000px;
+            color: #fff;
             padding: 20px;
-            margin: auto;
+            background-color: #000;
         }
 
-        .logo img {
-            width: 350px;
+        .calltoaction {
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(to bottom, #ffd700, #000);
+            padding: 20px;
         }
 
-        .presentacion {
-            color: red;
-            background-color: rgba(216, 175, 255, 0.1);
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 50px;
+        .header-title {
+            font-size: 1.5em;
+            color: #fff;
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        .workshop-container {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            background-color: #000;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: white;
+            border-radius: 8px;
+                justify-content: space-around;
+        }
+
+        .workshop-image img {
+            max-width: 500px;
+            border-radius: 8px;
+        }
+
+        .workshop-description {
+            text-align: center;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .workshop-description h2 {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ffd700;
+            margin: 0;
+        }
+
+        .workshop-description ul {
+            list-style: none;
+            padding: 0;
+            color: #ddd;
             margin: 20px 0;
-            font-size: 14px;
-            border: 1px solid red;
-            box-shadow: 0px 0px 10px 6px red;
         }
 
-        .logo h1 {
-            font-size: 45px;
-        }
-
-        h1 {
-            font-size: 35px;
-            margin-bottom: 30px;
-            line-height: 1.5;
-        }
-
-        .highlight {
-            color: red;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        input[type="text"], input[type="email"], input[type="tel"] {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #A3A3A3;
-            border-radius: 5px;
-            font-size: 16px;
-            outline: none;
-            color: black;
-        }
-
-        input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="tel"]::placeholder {
-            color: #A3A3A3;
-        }
-
-        .politica {
+        .workshop-description ul li {
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            font-size: 12px;
+            justify-content: center;
         }
 
-        .politica input {
+        .workshop-description ul li::before {
+            content: "✔";
+            color: #ffd700;
             margin-right: 10px;
         }
 
-        button {
-            background-color: #0b85d6;
+         .subtitle {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+            color: red;
+        }
+
+        .form-container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
             color: white;
-            border: none;
-            padding: 15px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="tel"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #222;
+            color: #fff;
+        }
+
+        .form-container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .form-container button {
             width: 100%;
-            border-radius: 5px;
-            font-size: 18px;
+            padding: 12px;
+            background-color: #ffd700;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #000;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .form-container button:hover {
+            background-color: #ffbf00;
+        }
+
+        .cta-button {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 15px 25px;
+            background: linear-gradient(to right, #776819, #000);
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            border-radius: 4px;
+            font-size: 1.2em;
+            font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
-        button:hover {
-            background-color: #094c79;
+        .cta-button:hover {
+            background-color: #444;
+        }
+
+        .start-date {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            background: linear-gradient(to right, #776819, #000);
+            color: #ffd700;
+            padding: 15px 25px;
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .icon {
+            margin-right: 10px;
+        }
+
+   @media (max-width: 1000px) {
+        .workshop-container {
+            flex-direction: column;
+        }
+    }
+
+           
+        @media (max-width: 768px) {
+            .workshop-description h2 {
+                font-size: 1.5em;
+            }
+            .cta-button, .start-date {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+
+               .workshop-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            }
+        }
+
+        .gracias {
+            text-align: center;
+            background-color: #776819;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            border: 1px solid #776819;
+        }
+
+        .gracias a {
+            color: red;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .gracias a:hover {
+            text-decoration: underline;
         }
 
 
-        .countdown {
-    display: flex;
-    gap: 20px;
-                text-align: center;
+          .countdown {
+            display: flex;
             justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-}
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-.time-box {
-    background-color: #e0e0e0;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-weight: bold;
-}
+        .countdown div {
+            background-color: red;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            width: 60px;
+        }
 
-.time-box span {
-    font-size: 2em;
-    display: block;
-    color: #333;
-}
+        .countdown div span {
+            display: block;
+            font-size: 0.8em;
+            font-weight: normal;
+        }
 
-.time-box p {
-    font-size: 0.8em;
-    color: #555;
-    margin-top: 10px;
-}
+        @media (max-width: 600px) {
+            .header-title {
+                font-size: 1.5em;
+            }
 
+            .form-container {
+                width: 90%;
+            }
 
-
-        .section-title {
-    text-align: center;
-    background-color: red;
-    color: white;
-    padding: 10px;
-    margin-top: 30px;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-    max-width: 900px;
-    margin: 10px auto;
-}
-
-.list-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 20px;
-}
-
-.list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f9f9f9;
-    border: 1px solid red;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
-}
-
-.list-item p {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
-    font-weight: 500;
-}
-
-.checkmark {
-    color: red;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-
-        .gracias {
-    text-align: center;
-    background-color: #e0f7fa;
-    color: #00796b;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    font-size: 18px;
-    border: 1px solid #00796b;
-    display: none; /* Oculto por defecto */
-}
-.gracias a {
-    color: red;
-    text-decoration: none;
-    font-weight: bold;
-}
-.gracias a:hover {
-    text-decoration: underline;
-}
-
-.boton-masterclass {
-    display: flex;
-    background-color: #0b85d6;
-    color: white;
-    padding: 15px 25px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    justify-content: center;
-    max-width: 900px;
-    margin: auto;
-}
-
-.boton-masterclass:hover {
-    background-color: #00796b; /* Un verde más oscuro para el efecto hover */
-}
-
-
-          @media (max-width: 600px) {
-    .time-box span {
-        font-size: 15px;
-        color: #333;
-        display: block;
-    }
-}
-
+            .countdown div {
+                width: 50px;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-          <h1>IPARTNERS</h1>
+    <div class="calltoaction">
+        <div class="header-title">
+            MASTERCLASS GRATUITA EN DIRECTO MIÉRCOLES 27 Y 28 DE NOVIEMBRE
         </div>
-        <h2 class="presentacion">MASTERCLASS GRATUITA EN DIRECTO MIÉRCOLES 27 Y 28 DE NOVIEMBRE</h2>
-        <h1>Deja de Cometer 
-            <span class="highlight"> Estos 3 Errores</span> y Tú Agencia Por Fin<span class="highlight"> PASARÁ AL SIGUIENTE NIVEL.</span></h1>
-            <p>RELLENA EL FORMULARIO PARA QUE TE LLEGUE LA CONVOCATORIA Y PODER ASISTIR</p>
-        <form id="miFormulario">
-            <input type="text" name="nombre" placeholder="Escribe tu nombre" required>
-            <input type="email" name="email" placeholder="Escribe tu email" required>
-            <input type="tel" name="telefono" placeholder="Escribe tu teléfono" required>
-            <div class="politica">
-                <input type="checkbox" id="politica" required>
-                <label for="politica">He leído y acepto la política de privacidad</label>
+    </div>
+
+    <div class="workshop-container">
+        <div class="workshop-image">
+            <img src="jc3.png" alt="Workshop Speakers">
+        </div>
+        <div class="workshop-description">
+            <h2>MASTERCLASS GRATUITA EN DIRECTO MIÉRCOLES 27 Y 28 DE NOVIEMBRE</h2>
+            <ul>
+                <li>Día 27: 3 Errores de las Agencias y cómo solventarlos</li>
+                <li>Día 28: Nuevas Herramientas de IA y ofrecerlas como servicios</li>
+            </ul>
+            <div class="cta-button">¡Reserva Tu Plaza GRATIS Ahora!</div>
+        </div>
+    </div>
+
+    <div class="start-date">
+        <div class="icon">📅</div>
+        INICIO 27 DE NOVIEMBRE
+    </div>
+
+    <div class="calltoaction" id="miFormulario">
+        <h3>WEBINAR <br>VÍA GOOGLE MEET</h3>
+        <div class="form-container">
+            <form id="form1" action="#">
+                <input type="text" name="nombre" placeholder="Tu nombre y apellidos" required>
+                <input type="email" name="email" placeholder="Tu mejor email" required>
+                <input type="tel" name="telefono" placeholder="Tu número de teléfono" required>
+                <label>
+                    <input type="checkbox" required>
+                    He leído y acepto la Política de Privacidad y Protección de datos.
+                </label>
+                <button type="submit">RESERVAR MI PLAZA EN EL LANZAMIENTO ➔</button>
+            </form>
+            <div class="gracias" style="display: none;">
+                <h2>Gracias por Apuntarte a Nuestro Lanzamiento</h2>
+                <p>Pero hay una cosa más ...</p>
             </div>
-            <button type="submit">¡Quiero Asistir a la MasterClass!</button>
-        </form>
-        <div class="gracias" style="display: none;">
-    <h2>Gracias por Apuntarte a Nuestro Lanzamiento</h2>
-    <p>Pero hay una cosa más ...</p>
-</div>
-
-    </div>
-
-   <div class="countdown">
-        <div class="time-box">
-            <span id="days">00</span>
-            <p>Días</p>
-        </div>
-        <div class="time-box">
-            <span id="hours">00</span>
-            <p>Horas</p>
-        </div>
-        <div class="time-box">
-            <span id="minutes">00</span>
-            <p>Minutos</p>
-        </div>
-        <div class="time-box">
-            <span id="seconds">00</span>
-            <p>Segundos</p>
         </div>
     </div>
 
+    <div class="container">
+        <div class="header-title">PARA AGENCIAS DE BRANDING, REDES SOCIALES, DE SOFTWARE, DE DESARROLLO WEB </div>
+        <p class="subtitle">PARA FREELANCE QUE NO FIDELIZAN MES A MES MÍNIMO 6 MESES CON 1 CLIENTE</p>
+        <h2 class="highlight">CONTRUYE TU AGENCIA CON BASES SÓLIDAS</h2>
+        <p><span class="italic">(Plazas Limitadas)</span></p>
 
+       <div class="form-container">
+            <form id="form2" action="#">
+                <input type="text" name="nombre" placeholder="Tu nombre y apellidos" required>
+                <input type="email" name="email" placeholder="Tu mejor email" required>
+                <input type="tel" name="telefono" placeholder="Tu número de teléfono" required>
+                <label>
+                    <input type="checkbox" required>
+                    He leído y acepto la Política de Privacidad y Protección de datos.
+                </label>
+                <button type="submit">RESERVAR MI PLAZA EN EL LANZAMIENTO ➔</button>
+            </form>
+            <div class="gracias" style="display: none;">
+                <h2>Gracias por Apuntarte a Nuestro Lanzamiento</h2>
+                <p>Pero hay una cosa más ...</p>
+            </div>
+        </div>
+    </div>
 
-<div class="section-title">
-    <h2>¿PARA QUIÉN ES ESTA MASTERCLASS GRATUITA?</h2>
-</div>
-
-<div class="list-container">
-    <div class="list-item">
-        <p>PARA AGENCIAS QUE ESTÁN ESTANCADAS EN SU FACTURACIÓN</p>
-        <span class="checkmark">✔️</span>
+        <div class="countdown">
+            <div id="days">18<span>DÍAS</span></div>
+            <div id="hours">11<span>HORAS</span></div>
+            <div id="minutes">40<span>MIN</span></div>
+            <div id="seconds">08<span>SEG</span></div>
+        </div>
     </div>
-    <div class="list-item">
-        <p>PARA AGENCIAS A LAS QUE LOS CLIENTES NO LES DURAN MÁS DE 3 MESES.</p>
-        <span class="checkmark">✔️</span>
-    </div>
-    <div class="list-item">
-        <p>PARA FREELANCES QUE ESTÁN INICIANDO SU PROPIA AGENCIA</p>
-        <span class="checkmark">✔️</span>
-    </div>
-    <div class="list-item">
-        <p>PARA FREELANCES QUE LLEVAN TIEMPO CON SU AGENCIA, PERO SIGUEN HACIENDO LAS COSAS COMO FREELANCES Y NO EVOLUCIONAN A UN NIVEL MÁS EMPRESARIAL</p>
-        <span class="checkmark">✔️</span>
-    </div>
-    <div class="list-item">
-        <p>PARA ALGUIEN QUE QUIERE INICIAR SU PROPIA AGENCIA Y ASÍ EVITARÁ ESTOS ERRORES DESDE EL PRINCIPIO</p>
-        <span class="checkmark">✔️</span>
-    </div>
-</div>
-<a href="#miFormulario" class="boton-masterclass">QUIERO ASISTIR A LA MASTERCLASS!</a>
-
-
-    
     <script>
-      document.getElementById('miFormulario').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita el envío predeterminado del formulario
 
-    // Obtén los valores del formulario
-    const nombre = document.querySelector('input[name="nombre"]').value.trim(); // Elimina espacios adicionales
-    let email = encodeURIComponent(document.querySelector('input[name="email"]').value.trim());
-    email = email.replace('%40', '@'); // Reemplaza %40 por @
-    const telefono = document.querySelector('input[name="telefono"]').value.trim();
 
-    // Prepara los datos a enviar
-    const data = {
-        nombre: nombre,
-        email: email,
-        telefono: telefono
-    };
+     document.addEventListener('DOMContentLoaded', function () {
+    function enviarFormulario(idFormulario) {
+        const formulario = document.getElementById(idFormulario);
+        if (!formulario) {
+            console.error(`Formulario con id ${idFormulario} no encontrado`);
+            return;
+        }
 
-    // Realiza la solicitud al webhook
-    fetch('https://hooks.zapier.com/hooks/catch/19308114/292pjjn/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        mode: 'no-cors',
-        body: JSON.stringify(data)
-    }).then(response => {
-        console.log('Datos enviados con éxito');
-        document.querySelector('.gracias').style.display = 'block'; // Muestra el mensaje de agradecimiento
-        document.getElementById('miFormulario').reset(); // Limpia el formulario
+        formulario.addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita el envío predeterminado del formulario
 
-        // Después de 3 segundos, redirige a lading2.html
-        setTimeout(() => {
-            window.location.href = 'landing2.html';
-        }, 3000);
-    }).catch(error => {
-        console.error('Error al enviar los datos:', error);
-    });
+            // Obtén los valores del formulario
+            const nombre = formulario.querySelector('input[name="nombre"]').value.trim();
+            let email = encodeURIComponent(formulario.querySelector('input[name="email"]').value.trim());
+            email = email.replace('%40', '@');
+            const telefono = formulario.querySelector('input[name="telefono"]').value.trim();
+
+            // Prepara los datos a enviar
+            const data = {
+                nombre: nombre,
+                email: email,
+                telefono: telefono
+            };
+
+            // Realiza la solicitud al webhook
+            fetch('https://hooks.zapier.com/hooks/catch/19308114/292pjjn/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                mode: 'no-cors',
+                body: JSON.stringify(data)
+            }).then(response => {
+                console.log('Datos enviados con éxito');
+                formulario.querySelector('.gracias').style.display = 'block'; // Muestra el mensaje de agradecimiento
+                formulario.reset(); // Limpia el formulario
+
+                // Después de 3 segundos, redirige a landing2.html
+                setTimeout(() => {
+                    window.location.href = 'landing2.html';
+                }, 3000);
+            }).catch(error => {
+                
+                    window.location.href = 'landing2.html';
+               
+            });
+        });
+    }
+
+    // Llama a la función para cada formulario
+    enviarFormulario('form1');
+    enviarFormulario('form2');
 });
 
 
 
 
 
-        function countdown() {
-    const targetDate = new Date("November 27, 2024 00:00:00").getTime();
-    const now = new Date().getTime();
-    const distance = targetDate - now;
+          // Función de contador
+        function startCountdown() {
+            const eventDate = new Date("November 27, 2024 00:00:00").getTime();
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            setInterval(function() {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
 
-    document.getElementById("days").textContent = days < 10 ? "0" + days : days;
-    document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
-    document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
-    document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    if (distance < 0) {
-        clearInterval(timer);
-        document.querySelector(".countdown").innerHTML = "<p>¡La fecha ha llegado!</p>";
-    }
-}
+                document.getElementById("days").innerHTML = days + "<span>DÍAS</span>";
+                document.getElementById("hours").innerHTML = hours + "<span>HORAS</span>";
+                document.getElementById("minutes").innerHTML = minutes + "<span>MIN</span>";
+                document.getElementById("seconds").innerHTML = seconds + "<span>SEG</span>";
 
-const timer = setInterval(countdown, 1000);
+                if (distance < 0) {
+                    clearInterval();
+                    document.querySelector(".countdown").innerHTML = "¡El evento ha comenzado!";
+                }
+            }, 1000);
+        }
 
-
-    document.querySelector('.boton-masterclass').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector('#miFormulario').scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-
-
+        // Iniciar el contador al cargar la página
+        startCountdown();
     </script>
-    <!-- Meta Pixel Code -->
-<script>
+    <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
