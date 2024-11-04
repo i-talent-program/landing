@@ -344,50 +344,61 @@
     <script>
 
 
-        function enviarFormulario(idFormulario) {
-    const formulario = document.getElementById(idFormulario);
-    formulario.addEventListener('submit', function (event) {
-        event.preventDefault(); // Evita el envío predeterminado del formulario
+     document.addEventListener('DOMContentLoaded', function () {
+    function enviarFormulario(idFormulario) {
+        const formulario = document.getElementById(idFormulario);
+        if (!formulario) {
+            console.error(`Formulario con id ${idFormulario} no encontrado`);
+            return;
+        }
 
-        // Obtén los valores del formulario
-        const nombre = formulario.querySelector('input[name="nombre"]').value.trim();
-        let email = encodeURIComponent(formulario.querySelector('input[name="email"]').value.trim());
-        email = email.replace('%40', '@');
-        const telefono = formulario.querySelector('input[name="telefono"]').value.trim();
+        formulario.addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita el envío predeterminado del formulario
 
-        // Prepara los datos a enviar
-        const data = {
-            nombre: nombre,
-            email: email,
-            telefono: telefono
-        };
+            // Obtén los valores del formulario
+            const nombre = formulario.querySelector('input[name="nombre"]').value.trim();
+            let email = encodeURIComponent(formulario.querySelector('input[name="email"]').value.trim());
+            email = email.replace('%40', '@');
+            const telefono = formulario.querySelector('input[name="telefono"]').value.trim();
 
-        // Realiza la solicitud al webhook
-        fetch('https://hooks.zapier.com/hooks/catch/19308114/292pjjn/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            mode: 'no-cors',
-            body: JSON.stringify(data)
-        }).then(response => {
-            console.log('Datos enviados con éxito');
-            formulario.querySelector('.gracias').style.display = 'block'; // Muestra el mensaje de agradecimiento
-            formulario.reset(); // Limpia el formulario
+            // Prepara los datos a enviar
+            const data = {
+                nombre: nombre,
+                email: email,
+                telefono: telefono
+            };
 
-            // Después de 3 segundos, redirige a landing2.html
-            setTimeout(() => {
-                window.location.href = 'landing2.html';
-            }, 3000);
-        }).catch(error => {
-            console.error('Error al enviar los datos:', error);
+            // Realiza la solicitud al webhook
+            fetch('https://hooks.zapier.com/hooks/catch/19308114/292pjjn/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                mode: 'no-cors',
+                body: JSON.stringify(data)
+            }).then(response => {
+                console.log('Datos enviados con éxito');
+                formulario.querySelector('.gracias').style.display = 'block'; // Muestra el mensaje de agradecimiento
+                formulario.reset(); // Limpia el formulario
+
+                // Después de 3 segundos, redirige a landing2.html
+                setTimeout(() => {
+                    window.location.href = 'landing2.html';
+                }, 3000);
+            }).catch(error => {
+                console.error('Error al enviar los datos:', error);
+            });
         });
-    });
-}
+    }
 
-// Llama a la función para cada formulario
-enviarFormulario('formulario1');
-enviarFormulario('formulario2');
+    // Llama a la función para cada formulario
+    enviarFormulario('formulario1');
+    enviarFormulario('formulario2');
+});
+
+
+
+
 
           // Función de contador
         function startCountdown() {
