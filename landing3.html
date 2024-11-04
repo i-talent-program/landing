@@ -15,6 +15,13 @@
             color: white;
         }
 
+         .container {
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            background-color: #000;
+        }
+
         .calltoaction {
             text-align: center;
             color: #fff;
@@ -77,6 +84,21 @@
             content: "✔";
             color: #ffd700;
             margin-right: 10px;
+        }
+
+         .subtitle {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+            color: red;
         }
 
         .form-container {
@@ -187,6 +209,46 @@
         .gracias a:hover {
             text-decoration: underline;
         }
+
+
+          .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .countdown div {
+            background-color: red;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            width: 60px;
+        }
+
+        .countdown div span {
+            display: block;
+            font-size: 0.8em;
+            font-weight: normal;
+        }
+
+        @media (max-width: 600px) {
+            .header-title {
+                font-size: 1.5em;
+            }
+
+            .form-container {
+                width: 90%;
+            }
+
+            .countdown div {
+                width: 50px;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -232,6 +294,32 @@
                 <h2>Gracias por Apuntarte a Nuestro Lanzamiento</h2>
                 <p>Pero hay una cosa más ...</p>
             </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header-title">MULTIPLICA LAS VENTAS DE TU NEGOCIO</div>
+        <p class="subtitle">COPIA Y PEGA NUESTRO SISTEMA PARA VENDER MÁS A TRAVÉS DE REDES SOCIALES USANDO WHATSAPP Y LA INTELIGENCIA ARTIFICIAL</p>
+        <h2 class="highlight">ACCEDE GRATIS AL WORKSHOP BENEURosenser Y MULTIPLICA TUS VENTAS</h2>
+        <p><span class="italic">(Plazas Limitadas)</span></p>
+
+        <div class="form-container">
+            <form action="#">
+                <input type="text" name="nombre" placeholder="Tu nombre y apellidos" required>
+                <input type="email" name="email" placeholder="Tu mejor email" required>
+                <label>
+                    <input type="checkbox" required>
+                    He leído y acepto la Política de Privacidad y Protección de datos.
+                </label>
+                <button type="submit">QUIERO MULTIPLICAR MIS VENTAS ➔</button>
+            </form>
+        </div>
+
+        <div class="countdown">
+            <div id="days">18<span>DÍAS</span></div>
+            <div id="hours">11<span>HORAS</span></div>
+            <div id="minutes">40<span>MINUTOS</span></div>
+            <div id="seconds">08<span>SEGUNDOS</span></div>
         </div>
     </div>
 </body>
