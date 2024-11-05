@@ -355,6 +355,21 @@
             color: white;
     }
 
+
+        .fotos-apuntados img {
+            border-radius: 50%;
+            width: 10px;
+        }
+
+        .fotos-apuntados {
+            display: flex;
+            justify-content: right;
+            flex-wrap: no-wrap;
+        }
+
+        .fotos-apuntados {
+                color: white;
+        }
     </style>
 </head>
 <body>
@@ -402,10 +417,21 @@
                 <h2>Gracias por Apuntarte a Nuestro Lanzamiento</h2>
                 <p>Pero hay una cosa más ...</p>
             </div>
+            <div class="apuntados">
+                <div class="fotos-apuntados">
+                    <img src="alumno1.png">
+                    <img src="alumno2.png">
+                    <img src="alumno3.png">
+                    <img src="alumno4.png">
+                </div>
+                <h3> <span class="alumnos">145 </span>personas apuntadas</h3>
+            </div>
         </div>
     </div>
 
-
+<div class="ejemploregistro" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: white; color: black; font-size: 15px; border-radius: 15px; border: solid 1px black; padding: 10px;">
+  <h1 id="popupMessage"></h1>
+</div>
 
 <div class="ventajas">
     <h2>¿Para quién es esta masterclass gratuita?</h2>
@@ -465,6 +491,42 @@
 
     
     <script>
+
+         const names = ["Ricardo Maximo", "Joel Castan", "Red Gaia", "Miguel Quickscrape", "Iris Agencia", "Stefania Franco", "Jack Pereda", "Jastyn Agencia"];
+  const alumnosSpan = document.querySelector('.alumnos');
+  const popup = document.querySelector('.ejemploregistro');
+  const popupMessage = document.getElementById('popupMessage');
+
+  let count = parseInt(alumnosSpan.textContent);
+
+  function showPopup(name) {
+    popupMessage.textContent = `${name} se ha registrado`;
+    popup.style.display = 'block';
+
+    setTimeout(() => {
+      popup.style.display = 'none';
+    }, 6000); // Mostrar el pop-up durante 6 segundos
+  }
+
+  function incrementCount() {
+    count += 1;
+    alumnosSpan.textContent = count;
+
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    showPopup(randomName);
+
+    const randomInterval = Math.floor(Math.random() * (30000 - 10000 + 1)) + 10000; // Genera un intervalo entre 10 y 30 segundos
+    setTimeout(incrementCount, randomInterval);
+  }
+
+  // Inicia el proceso de incremento
+  incrementCount();
+
+
+
+        
+
+        document.querySelector('.alumnos').content = 
 
     document.querySelectorAll('.cta-button a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
